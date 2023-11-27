@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO_URL = 'https://github.com/your-username/your-html-project.git'
-        NGINX_PATH = 'C:\\path\\to\\nginx\\html'
+        GIT_REPO_URL = 'https://github.com/namratasgit/pipeline1.git'
+        NGINX_PATH = 'C:/Users/user/Desktop/Namrata_Das_PU\/Fall_AY_2023-24/DevOps/installers/nginx-1.24.0/htmldocs'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 script {
-                    // Ensure you have Git installed and available in the PATH
-                    bat "git clone --branch main --single-branch %GIT_REPO_URL%"
+                    // Use the checkout step to clone the Git repository
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: GIT_REPO_URL]]])
                 }
             }
         }
