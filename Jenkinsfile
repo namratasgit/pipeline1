@@ -19,8 +19,8 @@ pipeline {
         stage('Deploy to Nginx') {
             steps {
                 script {
-                    // Assuming your HTML project is in a subdirectory named 'your-html-project'
-                    bat "xcopy /s /y .\\C:/Users/user/Desktop/Namrata_Das_PU/Fall_AY_2023-24/Subject_Handled/DevOps/pipeline\\* %NGINX_PATH%"
+                    // Assuming your HTML project is in a subdirectory named 'C:/Users/user/Desktop/Namrata_Das_PU/Fall_AY_2023-24/Subject_Handled/DevOps/pipeline'
+                    bat 'xcopy /s /y ".\\C:\\Users\\user\\Desktop\\Namrata_Das_PU\\Fall_AY_2023-24\\Subject_Handled\\DevOps\\pipeline\\*" "C:\\Users\\user\\Desktop\\Namrata_Das_PU\\Fall_AY_2023-24\\DevOps\\installers\\nginx-1.24.0\\htmldocs"'
                 }
             }
         }
