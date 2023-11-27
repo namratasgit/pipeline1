@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO_URL = 'https://github.com/namratasgit/pipeline1.git'
-        NGINX_PATH = 'C:/Users/user/Desktop/Namrata_Das_PU/Fall_AY_2023-24/DevOps/installers/nginx-1.24.0/htmldocs'
+        NGINX_PATH = 'C:\\Users\\user\\Desktop\\Namrata_Das_PU\\Fall_AY_2023-24\\DevOps\\installers\\nginx-1.24.0\\htmldocs'
     }
 
     stages {
@@ -19,8 +19,8 @@ pipeline {
         stage('Deploy to Nginx') {
             steps {
                 script {
-                    // Assuming your HTML project is in a subdirectory named 'C:/Users/user/Desktop/Namrata_Das_PU/Fall_AY_2023-24/Subject_Handled/DevOps/pipeline'
-                    bat 'xcopy /s /y ".\\C:\\Users\\user\\Desktop\\Namrata_Das_PU\\Fall_AY_2023-24\\Subject_Handled\\DevOps\\pipeline\\index.html" "C:\\Users\\user\\Desktop\\Namrata_Das_PU\\Fall_AY_2023-24\\DevOps\\installers\\nginx-1.24.0\\htmldocs"'
+                    // Using the Jenkins workspace variable to reference files
+                    bat 'xcopy /s /y ".\\Subject_Handled\\DevOps\\pipeline\\index.html" "%NGINX_PATH%"'
                 }
             }
         }
