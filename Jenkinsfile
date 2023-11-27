@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Assuming your HTML project is in a subdirectory named 'your-html-project'
-                    bat "xcopy /s /y .\\C:\Users\user\Desktop\Namrata_Das_PU\Fall_AY_2023-24\Subject_Handled\DevOps\pipeline\\* %NGINX_PATH%"
+                    bat "xcopy /s /y .\\C:/Users/user/Desktop/Namrata_Das_PU/Fall_AY_2023-24/Subject_Handled/DevOps/pipeline\\* %NGINX_PATH%"
                 }
             }
         }
